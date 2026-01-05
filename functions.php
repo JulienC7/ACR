@@ -138,8 +138,23 @@ add_action( 'widgets_init', 'acr_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function acr_theme_scripts() {
+	// Enqueue Google Fonts - Roboto
+	wp_enqueue_style( 'acr-google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap', array(), null );
+	
+	// Enqueue local fonts
+	wp_enqueue_style( 'acr-theme-fonts', get_template_directory_uri() . '/assets/fonts/fonts.css', array(), _S_VERSION );
+	
 	wp_enqueue_style( 'acr-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'acr-theme-style', 'rtl', 'replace' );
+	
+	// Enqueue footer styles
+	wp_enqueue_style( 'acr-theme-footer', get_template_directory_uri() . '/style/footer.css', array(), _S_VERSION );
+
+	// Enqueue homepage styles and scripts only on front page
+	if ( is_front_page() ) {
+		wp_enqueue_style( 'acr-homepage-style', get_template_directory_uri() . '/style/homepage.css', array(), _S_VERSION );
+		wp_enqueue_script( 'acr-homepage-script', get_template_directory_uri() . '/js/homepage.js', array(), _S_VERSION, true );
+	}
 
 	wp_enqueue_script( 'acr-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
