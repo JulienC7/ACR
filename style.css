@@ -967,3 +967,216 @@ textarea {
 	margin-right: auto;
 	margin-bottom: 1.5em;
 }
+<<<<<<< Updated upstream
+=======
+
+/* Custom Homepage Hero */
+.hero {
+  background: linear-gradient(135deg, #4a90e2, #9013fe);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem;
+  margin-bottom: 2rem;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+/* Navigation Enhancements */
+.main-navigation a {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
+}
+.main-navigation a:hover,
+.main-navigation a:focus {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}
+/* Calendar Page Styling */
+.calendar {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.calendar table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.calendar th,
+.calendar td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: center;
+}
+.calendar th {
+  background: #4a90e2;
+  color: #fff;
+}
+.calendar td:hover {
+  background: #f0f8ff;
+}
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.site-header {
+	background-color: transparent;
+	padding: 1rem 0;
+}
+
+.header-inner {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.site-branding {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.site-title {
+	margin: 0;
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.site-title a {
+	color: var(--color-secondary, #333);
+	text-decoration: none;
+}
+
+.site-description {
+	margin: 0;
+	font-size: 0.9rem;
+	color: #666;
+	display: none; /* Hidden by default for cleaner look, can be enabled */
+}
+
+/* Navigation */
+.main-navigation ul {
+	display: flex;
+	gap: 2rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.main-navigation a {
+	color: #333;
+	font-weight: 500;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.main-navigation a:hover {
+	color: var(--color-secondary, #0073aa);
+}
+
+/* Mobile Menu (Simple override for now) */
+@media (max-width: 768px) {
+	.header-inner {
+		flex-direction: column;
+		gap: 1rem;
+	}
+	
+	.main-navigation ul {
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.site-footer {
+	background-color: #f5f5f5;
+	padding: 4rem 0 0;
+	margin-top: 4rem;
+	border-top: 1px solid #eee;
+}
+
+.footer-inner {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem 4rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 3rem;
+}
+
+.footer-title {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	color: var(--color-secondary, #333);
+}
+
+.footer-heading {
+	font-size: 1.1rem;
+	margin-bottom: 1.5rem;
+	color: #333;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.footer-links ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-links li {
+	margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+	color: #666;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.footer-links a:hover {
+	color: var(--color-secondary, #0073aa);
+}
+
+.footer-contact p {
+	color: #666;
+	margin-bottom: 1rem;
+}
+
+.site-info {
+	background-color: #333;
+	color: #fff;
+	padding: 1.5rem 0;
+	font-size: 0.9rem;
+}
+
+.site-info-inner {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	text-align: center;
+}
+
+.site-info a {
+	color: #fff;
+	opacity: 0.8;
+}
+
+.site-info a:hover {
+	opacity: 1;
+	text-decoration: underline;
+}
+>>>>>>> Stashed changes

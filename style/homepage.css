@@ -1,0 +1,431 @@
+/**
+ * Homepage Styles - Atelier Cour Roland
+ * Design épuré avec police Roboto
+ */
+
+/* ================================
+   VARIABLES & BASE
+   ================================ */
+
+:root {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray-light: #f5f5f5;
+  --color-gray-mid: #cccccc;
+  --color-gray-dark: #333333;
+  --font-family: "Roboto", sans-serif;
+  --transition: all 0.3s ease;
+  --spacing-xs: 1rem;
+  --spacing-sm: 2rem;
+  --spacing-md: 4rem;
+  --spacing-lg: 6rem;
+  --spacing-xl: 8rem;
+}
+
+.acr-homepage {
+  font-family: var(--font-family);
+  color: var(--color-black);
+  overflow-x: hidden;
+}
+
+.acr-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Text utilities */
+.acr-text-center {
+  text-align: center;
+}
+
+/* Image placeholder */
+.acr-image-placeholder {
+  background: var(--color-gray-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border: 2px dashed var(--color-gray-mid);
+  color: var(--color-gray-dark);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ================================
+   SECTION HERO
+   ================================ */
+
+.acr-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: var(--color-white);
+  padding: var(--spacing-md) 0;
+}
+
+.acr-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.acr-hero-title {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+  color: var(--color-black);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.acr-hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+  color: var(--color-gray-dark);
+  letter-spacing: 0.02em;
+}
+
+.acr-hero-description {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.8;
+  margin: 0 0 3rem;
+  color: var(--color-gray-dark);
+}
+
+/* Boutons */
+.acr-btn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 2px solid var(--color-black);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.acr-btn-primary {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.acr-btn-primary:hover {
+  background: transparent;
+  color: var(--color-black);
+}
+
+.acr-btn-secondary {
+  background: transparent;
+  color: var(--color-black);
+}
+
+.acr-btn-secondary:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Scroll Indicator */
+.acr-scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-gray-dark);
+  opacity: 0.7;
+}
+
+.acr-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--color-black);
+  animation: scrollAnimation 2s infinite;
+}
+
+@keyframes scrollAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* ================================
+   SECTION À PROPOS
+   ================================ */
+
+.acr-about {
+  padding: var(--spacing-xl) 0;
+  background: var(--color-gray-light);
+}
+
+.acr-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.acr-section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 2rem;
+  color: var(--color-black);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.acr-section-title::before {
+  content: "";
+  position: absolute;
+  bottom: 5.5rem;
+  left: -0.1rem;
+  right: 3rem;
+  height: 3rem;
+  background-color: #db3d4d66;
+  z-index: -1;
+  border-radius: 0.1rem;
+}
+
+.acr-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--color-black);
+}
+
+.acr-text-center .acr-section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.acr-about-text {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--color-gray-dark);
+}
+
+.acr-about-text p {
+  margin-bottom: 1.5rem;
+}
+
+.acr-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--color-gray-light);
+}
+
+.acr-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.acr-image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+/* ================================
+   SECTION SERVICES
+   ================================ */
+
+.acr-services {
+  padding: var(--spacing-xl) 0;
+  background: #a1d2ce;
+}
+
+.acr-services-image {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.acr-services-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ================================
+   ANIMATIONS AOS
+   ================================ */
+
+[data-aos] {
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0.8s;
+  transition-timing-function: ease;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
+
+[data-aos="fade-up"] {
+  transform: translateY(50px);
+}
+
+[data-aos="fade-up"].aos-animate {
+  transform: translateY(0);
+}
+
+[data-aos="fade-right"] {
+  transform: translateX(-50px);
+}
+
+[data-aos="fade-right"].aos-animate {
+  transform: translateX(0);
+}
+
+[data-aos="fade-left"] {
+  transform: translateX(50px);
+}
+
+[data-aos="fade-left"].aos-animate {
+  transform: translateX(0);
+}
+
+[data-aos="zoom-in"] {
+  transform: scale(0.9);
+}
+
+[data-aos="zoom-in"].aos-animate {
+  transform: scale(1);
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+/* Tablettes (max-width: 1024px) */
+@media (max-width: 1024px) {
+  :root {
+    --spacing-md: 3rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 5rem;
+  }
+
+  .acr-hero-title {
+    font-size: 3rem;
+  }
+
+  .acr-hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .acr-section-title {
+    font-size: 2.5rem;
+  }
+
+  .acr-about-grid {
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  :root {
+    --spacing-sm: 1.5rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+  }
+
+  .acr-container {
+    padding: 0 1.5rem;
+  }
+
+  .acr-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .acr-hero-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .acr-hero-description {
+    font-size: 1rem;
+  }
+
+  .acr-btn {
+    padding: 0.875rem 2rem;
+    font-size: 0.875rem;
+  }
+
+  .acr-section-title {
+    font-size: 2rem;
+  }
+
+  .acr-about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+/* Petit mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .acr-hero-title {
+    font-size: 2rem;
+  }
+
+  .acr-section-title {
+    font-size: 1.75rem;
+  }
+
+  .acr-about-text {
+    font-size: 1rem;
+  }
+}
+
+/* ================================
+   SMOOTH SCROLL
+   ================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* ================================
+   ACCESSIBILITÉ
+   ================================ */
+
+*:focus-visible {
+  outline: 2px solid var(--color-black);
+  outline-offset: 3px;
+}
