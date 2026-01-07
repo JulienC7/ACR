@@ -31,8 +31,6 @@ function acr_theme_customize_register( $wp_customize ) {
 			)
 		);
 	}
-<<<<<<< Updated upstream
-=======
 
 	// ==========================================
 	// SECTION PAGE D'ACCUEIL
@@ -388,7 +386,6 @@ function acr_theme_customize_register( $wp_customize ) {
 		'section'  => 'acr_inscription_section',
 		'type'     => 'url',
 	) );
->>>>>>> Stashed changes
 }
 add_action( 'customize_register', 'acr_theme_customize_register' );
 
