@@ -147,12 +147,9 @@ function acr_theme_scripts() {
 	wp_enqueue_style( 'acr-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'acr-theme-style', 'rtl', 'replace' );
 	
-<<<<<<< HEAD
 	// Enqueue header styles
 	wp_enqueue_style( 'acr-theme-header', get_template_directory_uri() . '/style/header.css', array(), _S_VERSION );
 	
-=======
->>>>>>> main
 	// Enqueue footer styles
 	wp_enqueue_style( 'acr-theme-footer', get_template_directory_uri() . '/style/footer.css', array(), _S_VERSION );
 
@@ -161,14 +158,12 @@ function acr_theme_scripts() {
 		wp_enqueue_style( 'acr-homepage-style', get_template_directory_uri() . '/style/homepage.css', array(), _S_VERSION );
 		wp_enqueue_script( 'acr-homepage-script', get_template_directory_uri() . '/js/homepage.js', array(), _S_VERSION, true );
 	}
-<<<<<<< HEAD
 
 	// Enqueue inscription styles on inscription template
 	if ( is_page_template( 'inscription.php' ) ) {
 		wp_enqueue_style( 'acr-inscription-style', get_template_directory_uri() . '/style/inscription.css', array(), _S_VERSION );
 	}
-=======
->>>>>>> main
+
 
 	wp_enqueue_script( 'acr-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 

@@ -173,7 +173,6 @@ function acr_theme_customize_register( $wp_customize ) {
 		'label'    => __( 'Services - Image', 'acr-theme' ),
 		'section'  => 'acr_homepage_section',
 	) ) );
-<<<<<<< HEAD
 
 	// ==========================================
 	// SECTION PAGE INSCRIPTION
@@ -387,8 +386,7 @@ function acr_theme_customize_register( $wp_customize ) {
 		'section'  => 'acr_inscription_section',
 		'type'     => 'url',
 	) );
-=======
->>>>>>> main
+
 }
 add_action( 'customize_register', 'acr_theme_customize_register' );
 
