@@ -15,7 +15,11 @@ $hero_description = get_theme_mod( 'acr_hero_description', '' );
 $hero_button_text = get_theme_mod( 'acr_hero_button_text', 'Découvrir nos créations' );
 $hero_button_url  = get_theme_mod( 'acr_hero_button_url', '#about' );
 
+<<<<<<< HEAD
+$about_title      = get_theme_mod( 'acr_about_title', 'Bienvenue aux Ateliers de la Cour Roland' );
+=======
 $about_title      = get_theme_mod( 'acr_about_title', 'À Propos' );
+>>>>>>> main
 $about_content    = get_theme_mod( 'acr_about_content', 'Découvrez notre passion pour l\'artisanat et notre engagement envers l\'excellence.' );
 $about_image      = get_theme_mod( 'acr_about_image', '' );
 

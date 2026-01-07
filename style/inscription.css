@@ -1,0 +1,394 @@
+/* ========================================================================
+   PAGE INSCRIPTION
+   ======================================================================== */
+
+/* Section Inscription */
+.acr-inscription {
+  padding: 6rem 0;
+  background: var(--color-white);
+}
+
+/* Header - Titre et Saison */
+.acr-inscription-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.acr-inscription-title {
+  font-size: 8rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-family: "Roboto", sans-serif;
+}
+
+.acr-inscription-saison {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-gray-dark);
+  margin: 0;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+
+.acr-inscription-saison::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -0.2rem;
+  right: -0.2rem;
+  height: 100%;
+  background-color: #db3d4d66;
+  z-index: -1;
+  border-radius: 0.2rem;
+}
+
+/* Banderole */
+.acr-inscription-banderole {
+  background: #35a69140;
+  color: var(--color-black);
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+.acr-inscription-banderole p {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.banderole-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.banderole-item .checkmark {
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+/* Cards Grid */
+.acr-inscription-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Card individuelle */
+.acr-card {
+  background: var(--color-white);
+  border: 2px solid var(--color-black);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.acr-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Title */
+.acr-card-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: var(--color-black);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+/* Surlignage jaune pour les titres des cards complètes */
+.acr-card-complete .acr-card-title {
+  position: relative;
+  display: inline-block;
+}
+
+.acr-card-complete .acr-card-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: #f7de9a;
+  z-index: -1;
+  border-radius: 0.2rem;
+}
+
+/* Card Prix */
+.acr-card-prix {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.prix-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-black);
+  margin: 0 0 0.5rem;
+}
+
+.prix-subtitle {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-gray-dark);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Card Features (puces) */
+.acr-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  flex-grow: 1;
+}
+
+.acr-card-features li {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-black);
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.acr-card-features li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-black);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+/* Surlignage rose pour texte spécifique */
+.highlight-pink {
+  position: relative;
+  display: inline-block;
+}
+
+.highlight-pink::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -0.1rem;
+  right: -0.1rem;
+  height: 100%;
+  background-color: #db3d4d66;
+  z-index: -1;
+  border-radius: 0.1rem;
+}
+
+/* Card Buttons */
+.acr-card-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.acr-card-btn {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--color-black);
+  border-radius: 2rem;
+  transition: var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.acr-card-btn:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.acr-card-btn.acr-btn-primary {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.acr-card-btn.acr-btn-primary:hover {
+  background: transparent;
+  color: var(--color-black);
+}
+
+.acr-card-btn.acr-btn-secondary {
+  background: transparent;
+  color: var(--color-black);
+}
+
+/* Bouton secondary des cards complètes avec background vert */
+.acr-card-complete .acr-card-btn.acr-btn-secondary {
+  background: #35a69180;
+  color: var(--color-black);
+}
+
+.acr-card-btn.acr-btn-secondary:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Card Text (Cards 3 et 4) */
+.acr-card-text {
+  justify-content: flex-start;
+}
+
+/* Card 3 avec background foncé */
+.acr-card-text:nth-child(3) {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.acr-card-text:nth-child(3) .acr-card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.acr-card-text:nth-child(3) .acr-card-content {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.acr-card-text .acr-card-title {
+  margin-bottom: 1.5rem;
+}
+
+.acr-card-content {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-black);
+}
+
+.acr-card-content p {
+  margin-bottom: 1rem;
+}
+
+.acr-card-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Bouton pour card text */
+.acr-card-button-single {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ========================================================================
+   RESPONSIVE
+   ======================================================================== */
+
+/* Tablette */
+@media (max-width: 991px) {
+  .acr-inscription-title {
+    font-size: 3.5rem;
+  }
+
+  .acr-inscription-saison {
+    font-size: 1.125rem;
+  }
+
+  .acr-inscription-banderole p {
+    font-size: 1rem;
+  }
+
+  .acr-card-title {
+    font-size: 1.5rem;
+  }
+
+  .prix-amount {
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .acr-inscription {
+    padding: 4rem 0;
+  }
+
+  .acr-inscription-header {
+    margin-bottom: 2rem;
+  }
+
+  .acr-inscription-title {
+    font-size: 3rem;
+  }
+
+  .acr-inscription-saison {
+    font-size: 1rem;
+  }
+
+  .acr-inscription-banderole {
+    padding: 1rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .acr-inscription-banderole p {
+    font-size: 0.875rem;
+  }
+
+  .acr-inscription-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .acr-card {
+    padding: 2rem;
+  }
+
+  .acr-card-buttons {
+    flex-direction: column;
+  }
+
+  .acr-card-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Petit Mobile */
+@media (max-width: 480px) {
+  .acr-inscription-title {
+    font-size: 2rem;
+  }
+
+  .acr-card {
+    padding: 1.5rem;
+  }
+
+  .acr-card-title {
+    font-size: 1.25rem;
+  }
+}

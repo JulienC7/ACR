@@ -199,6 +199,20 @@
   letter-spacing: -0.01em;
   position: relative;
   padding-bottom: 1.5rem;
+
+  display: inline-block;
+}
+
+.acr-section-title::before {
+  content: "";
+  position: absolute;
+  bottom: 5.5rem;
+  left: -0.1rem;
+  right: 3rem;
+  height: 3rem;
+  background-color: #db3d4d66;
+  z-index: -1;
+  border-radius: 0.1rem;
 }
 
 .acr-section-title::after {
