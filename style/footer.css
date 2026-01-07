@@ -1,0 +1,209 @@
+/* Footer Styles - Based on Figma Design */
+
+.site-footer {
+	background-color: #000000;
+	color: #ffffff;
+	padding: 80px 0 0 0;
+	font-family: "Roboto", sans-serif;
+}
+
+.footer-container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 40px;
+}
+
+.footer-content {
+	display: flex;
+	justify-content: space-between;
+	gap: 80px;
+	padding-bottom: 60px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Footer Left - Branding */
+.footer-left {
+	flex: 1;
+	max-width: 500px;
+}
+
+.footer-brand {
+	font-family: "Roboto", sans-serif;
+	font-size: 48px;
+	font-weight: 700;
+	line-height: 1.2;
+	margin: 0 0 20px 0;
+	letter-spacing: -0.5px;
+	color: #ffffff;
+}
+
+.footer-tagline {
+	font-family: "Roboto", sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 1.6;
+	margin: 0;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+/* Footer Right - Sections */
+.footer-right {
+	flex: 1;
+	display: flex;
+	gap: 60px;
+	justify-content: flex-end;
+}
+
+.footer-section {
+	min-width: 180px;
+}
+
+.footer-heading {
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin: 0 0 24px 0;
+	color: #ffffff;
+}
+
+/* Footer Links */
+.footer-links,
+.footer-contact,
+.footer-social {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-links li,
+.footer-contact li,
+.footer-social li {
+	margin-bottom: 12px;
+}
+
+.footer-links a,
+.footer-contact a {
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+	font-weight: 400;
+	color: rgba(255, 255, 255, 0.7);
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+	color: #ffffff;
+}
+
+.footer-contact li {
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+	font-weight: 400;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+/* Social Media Icons */
+.footer-social {
+	display: flex;
+	gap: 16px;
+}
+
+.footer-social li {
+	margin-bottom: 0;
+}
+
+.footer-social a {
+	display: inline-block;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+	opacity: 0.7;
+	transform: translateY(-2px);
+}
+
+.social-icon {
+	width: 32px;
+	height: 32px;
+	display: block;
+	filter: brightness(0) invert(1);
+}
+
+
+
+/* Footer Bottom */
+.footer-bottom {
+	padding: 30px 0;
+	text-align: center;
+}
+
+.footer-bottom p {
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	margin: 0;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+	.footer-content {
+		flex-direction: column;
+		gap: 50px;
+	}
+	
+	.footer-right {
+		flex-direction: row;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+	
+	.footer-left {
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+	.site-footer {
+		padding: 60px 0 0 0;
+	}
+	
+	.footer-container {
+		padding: 0 20px;
+	}
+	
+	.footer-brand {
+		font-size: 36px;
+	}
+	
+	.footer-tagline {
+		font-size: 16px;
+	}
+	
+	.footer-right {
+		flex-direction: column;
+		gap: 40px;
+	}
+	
+	.footer-content {
+		gap: 40px;
+		padding-bottom: 40px;
+	}
+}
+
+@media (max-width: 480px) {
+	.footer-brand {
+		font-size: 28px;
+	}
+	
+	.footer-tagline {
+		font-size: 14px;
+	}
+	
+	.footer-heading {
+		font-size: 14px;
+	}
+}
