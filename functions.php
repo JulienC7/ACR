@@ -164,12 +164,24 @@ function acr_theme_scripts() {
 		wp_enqueue_style( 'acr-inscription-style', get_template_directory_uri() . '/style/inscription.css', array(), _S_VERSION );
 	}
 
+	// Enqueue ateliers styles and scripts on ateliers template
+	if ( is_page_template( 'page-ateliers.php' ) ) {
+		wp_enqueue_style( 'acr-ateliers-style', get_template_directory_uri() . '/style/ateliers.css', array(), _S_VERSION );
+		wp_enqueue_script( 'acr-ateliers-script', get_template_directory_uri() . '/js/ateliers.js', array(), _S_VERSION, true );
+	}
+
+	// Enqueue presentation styles on presentation template
+	if ( is_page_template( 'presentation.php' ) ) {
+		wp_enqueue_style( 'acr-presentation-style', get_template_directory_uri() . '/style/presentation.css', array(), _S_VERSION );
+	}
 
 	wp_enqueue_script( 'acr-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	
 }
 add_action( 'wp_enqueue_scripts', 'acr_theme_scripts' );
 

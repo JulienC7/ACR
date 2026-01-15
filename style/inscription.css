@@ -123,6 +123,7 @@
 .acr-card-complete .acr-card-title {
   position: relative;
   display: inline-block;
+  align-self: start;
 }
 
 .acr-card-complete .acr-card-title::before {
