@@ -1,0 +1,44 @@
+services:
+  - type: web
+    name: acr-wordpress
+    runtime: docker
+    plan: standard
+    healthCheckPath: /
+    envVars:
+      - key: WORDPRESS_DB_HOST
+        value: ${{mysql.MYSQL_HOSTNAME}}
+      - key: WORDPRESS_DB_NAME
+        scope: BUILD
+        value: wordpress_acr
+      - key: WORDPRESS_DB_USER
+        scope: BUILD
+        value: wordpress_acr
+      - key: WORDPRESS_DB_PASSWORD
+        scope: BUILD
+        fromDatabase:
+          name: mysql
+          property: password
+      - key: WORDPRESS_AUTH_KEY
+        generateValue: true
+      - key: WORDPRESS_SECURE_AUTH_KEY
+        generateValue: true
+      - key: WORDPRESS_LOGGED_IN_KEY
+        generateValue: true
+      - key: WORDPRESS_NONCE_KEY
+        generateValue: true
+      - key: WORDPRESS_AUTH_SALT
+        generateValue: true
+      - key: WORDPRESS_SECURE_AUTH_SALT
+        generateValue: true
+      - key: WORDPRESS_LOGGED_IN_SALT
+        generateValue: true
+      - key: WORDPRESS_NONCE_SALT
+        generateValue: true
+      - key: WP_DEBUG
+        value: 'false'
+
+databases:
+  - name: mysql
+    databaseName: wordpress_acr
+    user: wordpress_acr
+    plan: standard
