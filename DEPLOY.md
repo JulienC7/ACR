@@ -27,46 +27,56 @@ Ce guide explique comment déployer le thème WordPress ACR sur Render.
 
 ## Option 2: Configuration manuelle sur Render
 
-### Étape 1: Créer un service Web
+### Étape 1: Créer une base de données MySQL
 
 1. Allez sur https://dashboard.render.com
-2. Cliquez sur "New +" → "Web Service"
-3. Sélectionnez votre repository
-4. Configurez comme suit:
+2. Cliquez sur "New +" → "MySQL"
+3. Donnez-lui un nom (ex: wordpress-acr)
+4. Notez les informations:
+   - **External Database URL**: `mysql://user:password@hostname:port/database`
+   - **Internal Database URL** (optionnel)
+   - **Hostname**
+   - **Port** (défaut: 3306)
+   - **Database Name**
+   - **Username**
+   - **Password**
+
+### Étape 2: Créer un service Web
+
+1. Cliquez sur "New +" → "Web Service"
+2. Sélectionnez votre repository GitHub
+3. Configurez comme suit:
    - **Name**: acr-wordpress (ou votre choix)
-   - **Region**: Frankfurt (ou votre choix)
+   - **Region**: Frankfurt ou votre choix
    - **Branch**: main
    - **Runtime**: Docker
+   - **Build Command**: (laissez vide)
+   - **Start Command**: (laissez vide, utilisera le CMD du Dockerfile)
    - **Build & Deploy Timeout**: 30 minutes
-
-### Étape 2: Créer une base de données MySQL
-
-1. Cliquez sur "New +" → "MySQL"
-2. Donnez-lui un nom (ex: wordpress-acr)
-3. Notez le nom d'hôte et les credentials
 
 ### Étape 3: Configurer les variables d'environnement
 
 1. Dans votre service Web sur Render, allez à "Environment"
-2. Ajoutez les variables suivantes:
+2. **IMPORTANT**: Ajoutez les variables suivantes avec les valeurs de votre base de données MySQL:
 
 ```
-WORDPRESS_DB_HOST={hostname de votre BD MySQL}
-WORDPRESS_DB_NAME=wordpress_acr
-WORDPRESS_DB_USER=postgres (ou autre selon votre BD)
-WORDPRESS_DB_PASSWORD={votre mot de passe}
+WORDPRESS_DB_HOST=hostname_de_bd:3306
+WORDPRESS_DB_NAME=database_name
+WORDPRESS_DB_USER=username
+WORDPRESS_DB_PASSWORD=password
 WORDPRESS_DEBUG=false
 ```
 
-Générez des clés de sécurité WordPress à https://api.wordpress.org/secret-key/1.1/salt/ et ajoutez-les:
-- WORDPRESS_AUTH_KEY
-- WORDPRESS_SECURE_AUTH_KEY
-- WORDPRESS_LOGGED_IN_KEY
-- WORDPRESS_NONCE_KEY
-- WORDPRESS_AUTH_SALT
-- WORDPRESS_SECURE_AUTH_SALT
-- WORDPRESS_LOGGED_IN_SALT
-- WORDPRESS_NONCE_SALT
+3. Générez des clés de sécurité WordPress à https://api.wordpress.org/secret-key/1.1/salt/
+4. Copiez-collez toutes les lignes et ajoutez chacune en tant qu'variable d'environnement:
+   - WORDPRESS_AUTH_KEY
+   - WORDPRESS_SECURE_AUTH_KEY
+   - WORDPRESS_LOGGED_IN_KEY
+   - WORDPRESS_NONCE_KEY
+   - WORDPRESS_AUTH_SALT
+   - WORDPRESS_SECURE_AUTH_SALT
+   - WORDPRESS_LOGGED_IN_SALT
+   - WORDPRESS_NONCE_SALT
 
 ## Test local avec Docker Compose
 
