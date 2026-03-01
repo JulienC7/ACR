@@ -1,65 +1,34 @@
-FROM php:8.2-apache
+FROM httpd:2.4-alpine
 
-# Installer les extensions PHP nécessaires pour WordPress
-RUN apt-get update && apt-get install -y \
-    libpng-dev \
-    libjpeg62-turbo-dev \
-    libfreetype6-dev \
-    libzip-dev \
-    zlib1g-dev \
-    libmcrypt-dev \
-    curl \
-    git \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) \
-    gd \
-    mysqli \
-    zip \
-    exif \
-    && rm -rf /var/lib/apt/lists/*
+# Copier le contenu du site dans Apache
+COPY . /usr/local/apache2/htdocs/
 
-# Installer WP-CLI
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
-    chmod +x wp-cli.phar && \
-    mv wp-cli.phar /usr/local/bin/wp
-
-# Activer les modules Apache nécessaires
-RUN a2enmod rewrite
-
-# Copier la configuration Apache
-RUN echo '<Directory /var/www/html>\n\
+# Copier la configuration Apache pour support des permaliens/routes
+RUN echo '<Directory /usr/local/apache2/htdocs>\n\
     Options Indexes FollowSymLinks\n\
     AllowOverride All\n\
     Require all granted\n\
-</Directory>' > /etc/apache2/conf-available/wordpress.conf && \
-    a2enconf wordpress
+</Directory>\n\
+<IfModule mod_rewrite.c>\n\
+    RewriteEngine On\n\
+    RewriteBase /\n\
+    RewriteRule ^index\.html$ - [L]\n\
+    RewriteCond %{REQUEST_FILENAME} !-f\n\
+    RewriteCond %{REQUEST_FILENAME} !-d\n\
+    RewriteRule . /index.html [L]\n\
+</IfModule>' > /usr/local/apache2/conf.d/custom.conf
 
-# Définir le répertoire de travail
-WORKDIR /var/www/html
-
-# Si WordPress n'existe pas, le télécharger
-RUN if [ ! -f wp-load.php ]; then \
-    curl -O https://wordpress.org/latest.tar.gz && \
-    tar -xzf latest.tar.gz && \
-    mv wordpress/* . && \
-    rmdir wordpress && \
-    rm latest.tar.gz; \
-fi
-
-# Copier le thème dans le répertoire wp-content/themes
-COPY . /var/www/html/wp-content/themes/acr-theme/
+# Activer mod_rewrite
+RUN mkdir -p /usr/local/apache2/modules && \
+    sed -i 's/#LoadModule rewrite_module/LoadModule rewrite_module/' /usr/local/apache2/conf/httpd.conf
 
 # Définir les permissions
-RUN chown -R www-data:www-data /var/www/html && \
-    chmod -R 755 /var/www/html
+RUN chown -R daemon:daemon /usr/local/apache2/htdocs
 
 # Exposer le port 8080 pour Render
 EXPOSE 8080
 
-# Ajouter wp-config.php par défaut si absent
-RUN if [ ! -f wp-config.php ]; then \
-    curl -O https://raw.githubusercontent.com/wordpress/wordpress-develop/trunk/wp-config-sample.php && \
-    mv wp-config-sample.php wp-config.php; \
-fi
+# Change port from 80 to 8080 for Render
+RUN sed -i 's/Listen 80/Listen 8080/' /usr/local/apache2/conf/httpd.conf
 
-CMD ["apache2-foreground"]
+CMD ["httpd-foreground"]
